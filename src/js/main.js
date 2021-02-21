@@ -11,6 +11,7 @@ function formSubmitHandler(event) {
   event.preventDefault();
   IO.unobserve(refs.sentinel);
   const form = event.currentTarget;
+  if (form.elements.query.value === '') return;
   apiService.query = form.elements.query.value;
   clearGallery();
   createSentinel();
